@@ -1,4 +1,5 @@
-export DATA="$HOME/data"
+export DATA="$HOME"
+[[ "$HOST" == "matias-pc" ]] && export DATA="$HOME/data"
 export ANDROID_EMULATOR_HOME="$DATA/android"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
 export XDG_CONFIG_HOME="$HOME/.config"

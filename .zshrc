@@ -1,7 +1,9 @@
 source ~/env.sh
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
+  # Start TMUX first; try to reattach a session
+  ATTACH_OPT=$(tmux ls | grep -vq attached && echo "attach -d")
+  exec bash -c "tmux $ATTACH_OPT"
 else 
   autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 

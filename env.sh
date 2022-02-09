@@ -1,8 +1,10 @@
 export DATA="$HOME"
 [[ "$HOST" == "matias-pc" ]] && export DATA="$HOME/data"
-export ANDROID_EMULATOR_HOME="$DATA/android"
+export ANDROID_HOME="$DATA/android"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
+export ANDROID_EMULATOR_HOME="$DATA/android/emulator"
 export XDG_CONFIG_HOME="$HOME/.config"
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 export SDKMAN_DIR="$DATA/sdkman"
 export XDG_CACHE_HOME="$DATA/.cache"
 export SDKMAN_DIR="$DATA/sdkman"
@@ -24,21 +26,20 @@ export GOPATH="$DATA/go"
 export GOBIN="$GOPATH/bin"
 export GRADLE_USER_HOME="$HOME/.local/gradle"
 
-pathprepend() {
-  for ARG in "$@"; do
-    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-        PATH="$ARG${PATH:+":$PATH"}"
+pathmunge() {
+  if ! echo "$PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
+    if [ "$2" = "after" ] ; then
+      PATH="$PATH:$1"
+    else
+      PATH="$1:$PATH"
     fi
-  done
+  fi
 }
 
-pathappend() {
-  for ARG in "$@"; do
-    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-        PATH="${PATH:+"$PATH:"}$ARG"
-    fi
-  done
-}
-
-pathprepend $CARGO_HOME/bin 
-pathappend ~/bin ~/.local/bin $GOBIN ~/.npm/bin ~/flutter/bin ~/jetbrains/idea/bin
+pathmunge "$CARGO_HOME/bin"
+pathmunge ~/bin
+pathmunge ~/.local/bin
+pathmunge "$GOBIN"
+pathmunge ~/.npm/bin
+pathmunge ~/flutter/bin
+pathmunge "$ANDROID_HOME/platform-tools"

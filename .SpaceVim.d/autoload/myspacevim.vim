@@ -20,6 +20,9 @@ function! myspacevim#before() abort
 
   " ctrl space to autocomplete
   inoremap <silent><expr> <c-space> coc#refresh()
+
+  " use system clipboard
+  set clipboard+=unnamed
 endfunction
 
 

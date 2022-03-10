@@ -12,7 +12,8 @@ function! myspacevim#before() abort
   set smartcase
 
   " ; = :
-  noremap ; :
+  nnoremap ; :
+  vnoremap ; :
 
   " make j and k move by wrapped line unless there is a count
   nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
@@ -27,5 +28,5 @@ endfunction
 
 
 function! myspacevim#after() abort
-
+  hi Normal guibg=NONE ctermbg=NONE
 endfunction

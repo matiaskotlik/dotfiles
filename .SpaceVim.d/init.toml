@@ -1,6 +1,6 @@
 [options]
 automatic_update = true
-colorscheme = 'molokai'
+colorscheme = 'onedark'
 colorscheme_bg = 'dark'
 enable_guicolors = true
 statusline_separator = 'arrow'

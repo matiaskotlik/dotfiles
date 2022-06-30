@@ -1,6 +1,6 @@
 source ~/env.sh
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ] && [ -z "$DISABLE_TMUX" ]; then
   # Start TMUX first; try to reattach a session
   ATTACH_OPT=$(tmux ls | grep -vq attached && echo "attach -d")
   exec bash -c "tmux $ATTACH_OPT"
@@ -50,3 +50,9 @@ else
   setopt appendhistory beep extendedglob nomatch notify
   unsetopt autocd
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/matias/google-cloud-sdk/path.zsh.inc' ]; then . '/home/matias/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/matias/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/matias/google-cloud-sdk/completion.zsh.inc'; fi

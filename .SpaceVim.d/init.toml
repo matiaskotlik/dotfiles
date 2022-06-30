@@ -101,9 +101,8 @@ name='lang#php'
 
 [[layers]]
 name='lang#python'
-python_file_head = []
-python_interpreter = '/usr/bin/python'
 enable_typeinfo = true
+enabled_linters = ['python', 'pylint']
 
 [[layers]]
 name='lang#rust'
@@ -123,9 +122,7 @@ name='lang#xml'
 
 [[layers]]
 name='lsp'
-filetypes = ['rust', 'python', 'c', 'cpp', 'objc', 'objcpp', 'sh']
-[layers.override_cmd]
-rust = ['rust-analyzer']
+enabled_clients = ['vimls', 'clangd', 'pyright']
 
 [[layers]]
 name='checkers'

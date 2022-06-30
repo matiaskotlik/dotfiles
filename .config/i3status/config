@@ -14,13 +14,21 @@ general {
   interval = 5
 }
 
+order += "path_exists VPN"
 order += "wireless wlp5s0"
 order += "ethernet eth0"
+order += "backlight"
 order += "battery 1"
 order += "load"
 order += "cpu_usage"
 order += "memory"
 order += "tztime local"
+
+path_exists VPN {
+  path = "/sys/class/net/ztr2q7dgwl"
+  format = "歷 VPN 192.168.195.2"
+  format_down = "轢"
+}
 
 wireless wlp5s0 {
   format_up = " %essid %ip"
@@ -66,6 +74,6 @@ memory {
 }
 
 tztime local {
-  format = " %a, %b %-m %H:%M"
+  format = " %a, %b %-d %H:%M"
 }
 

@@ -16,7 +16,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive' " :Git
 Plug 'tpope/vim-eunuch' " :Mkdir, :SudoWrite, :SudoEdit, :Move, :Rename
 Plug 'airblade/vim-gitgutter' " ]c, [c
-Plug 'christoomey/vim-tmux-navigator' " ctrl + hjkl to navigate
 call plug#end()
 
 set signcolumn=yes " always show sign column

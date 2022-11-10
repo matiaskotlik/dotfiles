@@ -19,6 +19,7 @@ Plug 'airblade/vim-gitgutter' " ]c, [c
 call plug#end()
 
 set signcolumn=yes " always show sign column
+set updatetime=100 " update gutter every 100ms (default 4000)
 
 " sign column color to matches bg
 highlight clear SignColumn

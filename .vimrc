@@ -16,10 +16,14 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive' " :Git
 Plug 'tpope/vim-eunuch' " :Mkdir, :SudoWrite, :SudoEdit, :Move, :Rename
 Plug 'airblade/vim-gitgutter' " ]c, [c
-Plug 'EdenEast/nightfox.nvim' " nightfox theme
+if has('nvim')
+  Plug 'EdenEast/nightfox.nvim' " nightfox theme
+endif
 call plug#end()
 
-colorscheme carbonfox
+if has('nvim')
+  colorscheme carbonfox
+endif
 
 set signcolumn=yes " always show sign column
 set updatetime=100 " update gutter every 100ms (default 4000)

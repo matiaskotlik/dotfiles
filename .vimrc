@@ -12,10 +12,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround' " cs, ys, ds
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fugitive' " :Git
-Plug 'tpope/vim-eunuch' " :Mkdir, :SudoWrite, :SudoEdit, :Move, :Rename
-Plug 'airblade/vim-gitgutter' " ]c, [c
 Plug 'github/copilot.vim' " :Copilot
 call plug#end()
 

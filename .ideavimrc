@@ -1,3 +1,4 @@
 Plug 'tpope/vim-surround'
 set relativenumber
 set number 
+set ideajoin

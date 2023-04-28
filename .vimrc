@@ -11,6 +11,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin()
 Plug 'tpope/vim-sensible'
+Plug 'tpope/sleuth.vim' " auto detect indent
 Plug 'tpope/vim-surround' " cs, ys, ds
 Plug 'github/copilot.vim' " :Copilot
 call plug#end()
@@ -21,6 +22,8 @@ set updatetime=100 " update gutter every 100ms (default 4000)
 set number " show line number at cursor
 set relativenumber " show relative line number around cursor
 
+set conceallevel=2 " conceal characters
+
 let g:netrw_liststyle=3 " show tree view
 let g:netrw_browse_split=4 " open files in previous window
 let g:netrw_winsize=15 " use 15% of screen when splitting
@@ -29,3 +32,5 @@ let g:netrw_altv=1 " https://superuser.com/questions/1056929/open-file-in-vertic
 
 " sign column color to matches bg
 highlight clear SignColumn
+
+let g:copilot_filetypes = { '*': v:true } " enable copilot for all filetypes
